@@ -1,0 +1,39 @@
+{
+  "title": "Customer Feedback",
+  "description": "Please help us improve our product.",
+  "elements": [
+    {
+      "name": "quality",
+      "title": "How would you rate the quality of our product?",
+      "type": "rating",
+      "rateMin": 1,
+      "rateMax": 5
+    },
+    {
+      "name": "how_did_you_hear",
+      "title": "How did you hear about us?",
+      "type": "radiogroup",
+      "choices": [
+        "Social Media",
+        "Friend or colleague",
+        "Web search",
+        "Other"
+      ]
+    },
+    {
+      "name": "features_used",
+      "title": "Which features do you use the most? (Select all that apply)",
+      "type": "checkbox",
+      "choices": [
+        "Feature A",
+        "Feature B",
+        "Feature C"
+      ]
+    },
+    {
+      "name": "open_feedback",
+      "title": "Do you have any other feedback for us?",
+      "type": "comment"
+    }
+  ]
+}

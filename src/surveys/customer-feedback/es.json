@@ -1,0 +1,39 @@
+{
+  "title": "Comentarios de los Clientes",
+  "description": "Por favor, ayúdenos a mejorar nuestro producto.",
+  "elements": [
+    {
+      "name": "quality",
+      "title": "¿Cómo calificaría la calidad de nuestro producto?",
+      "type": "rating",
+      "rateMin": 1,
+      "rateMax": 5
+    },
+    {
+      "name": "how_did_you_hear",
+      "title": "¿Cómo te enteraste de nosotros?",
+      "type": "radiogroup",
+      "choices": [
+        "Redes sociales",
+        "Amigo o colega",
+        "Búsqueda web",
+        "Otro"
+      ]
+    },
+    {
+      "name": "features_used",
+      "title": "¿Qué funciones utilizas más? (Selecciona todas las que apliquen)",
+      "type": "checkbox",
+      "choices": [
+        "Función A",
+        "Función B",
+        "Función C"
+      ]
+    },
+    {
+      "name": "open_feedback",
+      "title": "¿Tienes algún otro comentario para nosotros?",
+      "type": "comment"
+    }
+  ]
+}
