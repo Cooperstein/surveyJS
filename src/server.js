@@ -63,7 +63,7 @@ async function logImpression(surveyName, surveyLanguage) {
   try {
     const insertImpressionQuery = 'INSERT INTO survey_impressions (survey_name, survey_language) VALUES ($1, $2)';
     await pool.query(insertImpressionQuery, [surveyName, surveyLanguage]);
-    console.log(`Logged impression for: ${surveyName}`);
+    console.log(`Logged impression for: ${surveyName} in ${surveyLanguage}`);
   } catch (error) {
     console.error('Error logging impression:', error);
   }
@@ -72,44 +72,47 @@ async function logImpression(surveyName, surveyLanguage) {
 // --- Routes ---
 
 // Route for the Customer Feedback A/B test
-app.get('/feedback', async (req, res) => {
-  const cookieName = 'feedbackAssignment';
+app.get('/feedback/:lang?', async (req, res) => {
+  const lang = req.params.lang || 'en';
+  const cookieName = `feedbackAssignment-${lang}`;
   if (req.cookies[cookieName]) {
-    res.redirect(`/survey/${req.cookies[cookieName]}/en`);
+    res.redirect(`/survey/${req.cookies[cookieName]}/${lang}`);
   } else {
     const assignedSurvey = feedbackSurveys[nextFeedbackIndex];
     nextFeedbackIndex = (nextFeedbackIndex + 1) % feedbackSurveys.length;
-    await logImpression(assignedSurvey, 'en');
+    await logImpression(assignedSurvey, lang); // <-- FIX APPLIED HERE
     res.cookie(cookieName, assignedSurvey, { maxAge: 900000, httpOnly: true });
-    res.redirect(`/survey/${assignedSurvey}/en`);
+    res.redirect(`/survey/${assignedSurvey}/${lang}`);
   }
 });
 
 // Route for the New Feature Poll A/B test
-app.get('/poll', async (req, res) => {
-  const cookieName = 'pollAssignment';
+app.get('/poll/:lang?', async (req, res) => {
+  const lang = req.params.lang || 'en';
+  const cookieName = `pollAssignment-${lang}`;
   if (req.cookies[cookieName]) {
-    res.redirect(`/survey/${req.cookies[cookieName]}/en`);
+    res.redirect(`/survey/${req.cookies[cookieName]}/${lang}`);
   } else {
     const assignedSurvey = pollSurveys[nextPollIndex];
     nextPollIndex = (nextPollIndex + 1) % pollSurveys.length;
-    await logImpression(assignedSurvey, 'en');
+    await logImpression(assignedSurvey, lang); // <-- FIX APPLIED HERE
     res.cookie(cookieName, assignedSurvey, { maxAge: 900000, httpOnly: true });
-    res.redirect(`/survey/${assignedSurvey}/en`);
+    res.redirect(`/survey/${assignedSurvey}/${lang}`);
   }
 });
 
 // Route for EMPLOYEES
-app.get('/employee', async (req, res) => {
-  const cookieName = 'employeeSurveyAssignment';
+app.get('/employee/:lang?', async (req, res) => {
+  const lang = req.params.lang || 'en';
+  const cookieName = `employeeSurveyAssignment-${lang}`;
   if (req.cookies[cookieName]) {
-    res.redirect(`/survey/${req.cookies[cookieName]}/en`);
+    res.redirect(`/survey/${req.cookies[cookieName]}/${lang}`);
   } else {
     const assignedSurvey = employeeSurveys[nextEmployeeIndex];
     nextEmployeeIndex = (nextEmployeeIndex + 1) % employeeSurveys.length;
-    await logImpression(assignedSurvey, 'en');
+    await logImpression(assignedSurvey, lang); // <-- FIX APPLIED HERE
     res.cookie(cookieName, assignedSurvey, { maxAge: 900000, httpOnly: true });
-    res.redirect(`/survey/${assignedSurvey}/en`);
+    res.redirect(`/survey/${assignedSurvey}/${lang}`);
   }
 });
 
