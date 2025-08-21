@@ -1,0 +1,56 @@
+{
+    "title": "Employee Satisfaction Survey (Version B)",
+    "description": "Your feedback helps us improve our company culture and processes.",
+    "pages": [
+      {
+        "name": "nps_and_culture",
+        "title": "Overall Satisfaction & Culture",
+        "elements": [
+          {
+            "name": "nps_score",
+            "title": "On a scale of 0-10, how likely are you to recommend our company as a great place to work?",
+            "type": "rating",
+            "rateMin": 0,
+            "rateMax": 10,
+            "isRequired": true
+          },
+          {
+            "name": "nps_detractor_feedback",
+            "title": "We're sorry to hear that. What are the most important reasons for your score?",
+            "type": "comment",
+            "isRequired": true,
+            "visibleIf": "{nps_score} <= 6"
+          },
+          {
+            "name": "nps_promoter_feedback",
+            "title": "That's great to hear! What do you value most about working here?",
+            "type": "comment",
+            "isRequired": true,
+            "visibleIf": "{nps_score} >= 9"
+          }
+        ]
+      },
+      {
+        "name": "company_aspects",
+        "title": "Company Aspects",
+        "elements": [
+          {
+            "name": "company_ratings",
+            "title": "Please rate the following aspects of the company:",
+            "type": "matrixdropdown",
+            "columns": [
+              { "name": "rating", "title": "Rating", "cellType": "dropdown", "choices": ["Poor", "Fair", "Good", "Excellent"], "isRequired": true }
+            ],
+            "rows": [ "Communication from leadership", "Company benefits (health, etc.)", "Opportunities for growth" ]
+          },
+          {
+            "name": "poor_rating_followup",
+            "title": "You rated at least one area as 'Poor'. Could you please provide more specific feedback on what we can improve?",
+            "type": "comment",
+            "isRequired": true,
+            "visibleIf": "{company_ratings.Communication from leadership.rating} = 'Poor' or {company_ratings.Company benefits (health, etc.).rating} = 'Poor' or {company_ratings.Opportunities for growth.rating} = 'Poor'"
+          }
+        ]
+      }
+    ]
+  }

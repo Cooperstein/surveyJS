@@ -1,0 +1,67 @@
+{
+    "title": "Employee Satisfaction Survey (Version A)",
+    "description": "Your feedback is vital for our growth. Please be candid.",
+    "pages": [
+      {
+        "name": "role_and_general",
+        "title": "Your Role & General Feedback",
+        "elements": [
+          {
+            "name": "department",
+            "title": "Which department are you in?",
+            "type": "dropdown",
+            "isRequired": true,
+            "choices": ["Engineering", "Sales", "Marketing", "Support"]
+          },
+          {
+            "name": "work_life_balance",
+            "title": "How would you rate your work-life balance?",
+            "type": "rating",
+            "rateMin": 1, "rateMax": 5,
+            "minRateDescription": "Poor", "maxRateDescription": "Excellent"
+          },
+          {
+            "name": "manager_feedback_score",
+            "title": "How satisfied are you with the feedback you receive from your manager?",
+            "type": "rating",
+            "rateMin": 1, "rateMax": 5,
+            "minRateDescription": "Unsatisfied", "maxRateDescription": "Very Satisfied"
+          }
+        ]
+      },
+      {
+        "name": "role_specific_questions",
+        "title": "Department-Specific Questions",
+        "elements": [
+          {
+            "name": "software_tools_rating",
+            "title": "Please rate the software development tools we provide (IDE, CI/CD, etc.).",
+            "type": "rating",
+            "visibleIf": "{department} = 'Engineering'",
+            "isRequired": true
+          },
+          {
+            "name": "sales_quota_clarity",
+            "title": "How clear are the expectations regarding your sales quotas?",
+            "type": "radiogroup",
+            "choices": ["Very Unclear", "Somewhat Unclear", "Neutral", "Clear", "Very Clear"],
+            "visibleIf": "{department} = 'Sales'",
+            "isRequired": true
+          },
+          {
+            "name": "project_feedback",
+            "title": "Please provide feedback on up to three recent projects you've worked on.",
+            "type": "paneldynamic",
+            "panelCount": 1,
+            "panelAddText": "Add Project Feedback",
+            "panelRemoveText": "Remove Project",
+            "templateElements": [
+              { "name": "project_name", "title": "Project Name", "type": "text", "isRequired": true },
+              { "name": "project_role", "title": "Your Role", "type": "text", "isRequired": true },
+              { "name": "project_satisfaction", "title": "Overall satisfaction with this project", "type": "rating", "rateMax": 5, "isRequired": true }
+            ]
+          }
+        ]
+      }
+    ]
+  }

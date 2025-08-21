@@ -1,0 +1,26 @@
+{
+  "title": "Avis des clients (Version B)",
+  "description": "Veuillez nous aider à améliorer notre produit.",
+  "elements": [
+    {
+      "name": "recommend_score",
+      "title": "Quelle est la probabilité que vous recommandiez notre produit à un ami ou à un collègue ?",
+      "type": "rating",
+      "rateMin": 0,
+      "rateMax": 10
+    },
+    {
+      "name": "how_did_you_hear",
+      "title": "Comment avez-vous entendu parler de nous ?",
+      "type": "radiogroup",
+      "choices": ["Réseaux sociaux", "Ami ou collègue", "Recherche web", "Autre"]
+    },
+    {
+      "name": "features_used",
+      "title": "Quelles fonctionnalités utilisez-vous le plus ? (Sélectionnez tout ce qui s'applique)",
+      "type": "checkbox",
+      "choices": ["Fonctionnalité A", "Fonctionnalité B", "Fonctionnalité C"]
+    },
+    {
+      "name": "open_feedback",
+      "title": "Avez-vous d'autres commentaires à nous faire

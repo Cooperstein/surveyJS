@@ -1,0 +1,42 @@
+{
+    "title": "Help Us Shape Our Next Feature (A)",
+    "description": "Your feedback on your current workflow will help us build better tools for you.",
+    "elements": [
+      {
+        "name": "current_process",
+        "title": "Which of these best describes how you currently manage this task?",
+        "type": "radiogroup",
+        "choices": [
+          "Using a spreadsheet",
+          "Using a different software",
+          "Manually, with pen and paper",
+          "I don't currently do this"
+        ]
+      },
+      {
+        "name": "task_importance",
+        "title": "How important are the following aspects of this task to you?",
+        "type": "matrix",
+        "columns": ["Not Important", "Slightly Important", "Very Important"],
+        "rows": ["Speed", "Accuracy", "Collaboration"]
+      },
+      {
+        "name": "pricing_tier",
+        "title": "How much would you be willing to pay monthly for a tool that automates this task?",
+        "type": "dropdown",
+        "choices": [
+          "Free",
+          "$10 / month",
+          "$25 / month",
+          "$50+ / month"
+        ]
+      },
+      {
+          "name": "beta_interest",
+          "title": "Would you be interested in joining a private beta for a new feature that helps with this?",
+          "type": "boolean",
+          "labelTrue": "Yes, count me in!",
+          "labelFalse": "No, thank you."
+      }
+    ]
+  }

@@ -1,34 +1,25 @@
 {
-  "title": "Customer Feedback",
+  "title": "Customer Feedback (Version B)",
   "description": "Please help us improve our product.",
   "elements": [
     {
-      "name": "quality",
-      "title": "How would you rate the quality of our product?",
+      "name": "recommend_score",
+      "title": "How likely are you to recommend our product to a friend or colleague?",
       "type": "rating",
-      "rateMin": 1,
-      "rateMax": 5
+      "rateMin": 0,
+      "rateMax": 10
     },
     {
       "name": "how_did_you_hear",
       "title": "How did you hear about us?",
       "type": "radiogroup",
-      "choices": [
-        "Social Media",
-        "Friend or colleague",
-        "Web search",
-        "Other"
-      ]
+      "choices": ["Social Media", "Friend or colleague", "Web search", "Other"]
     },
     {
       "name": "features_used",
       "title": "Which features do you use the most? (Select all that apply)",
       "type": "checkbox",
-      "choices": [
-        "Feature A",
-        "Feature B",
-        "Feature C"
-      ]
+      "choices": ["Feature A", "Feature B", "Feature C"]
     },
     {
       "name": "open_feedback",

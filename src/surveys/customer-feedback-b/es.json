@@ -1,0 +1,30 @@
+{
+  "title": "Opinión de los clientes (Versión B)",
+  "description": "Por favor, ayúdenos a mejorar nuestro producto.",
+  "elements": [
+    {
+      "name": "recommend_score",
+      "title": "¿Qué probabilidad hay de que recomiende nuestro producto a un amigo o colega?",
+      "type": "rating",
+      "rateMin": 0,
+      "rateMax": 10
+    },
+    {
+      "name": "how_did_you_hear",
+      "title": "¿Cómo se enteró de nosotros?",
+      "type": "radiogroup",
+      "choices": ["Redes sociales", "Amigo o colega", "Búsqueda web", "Otro"]
+    },
+    {
+      "name": "features_used",
+      "title": "¿Qué funciones utiliza más? (Seleccione todas las que correspondan)",
+      "type": "checkbox",
+      "choices": ["Función A", "Función B", "Función C"]
+    },
+    {
+      "name": "open_feedback",
+      "title": "¿Tiene algún otro comentario para nosotros?",
+      "type": "comment"
+    }
+  ]
+}
