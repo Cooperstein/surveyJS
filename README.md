@@ -2,6 +2,108 @@
 
 A production-ready SurveyJS application with a Go backend that provides A/B testing capabilities for different survey types.
 
+## 🚀 Quick Start for Beginners
+
+### What You'll Need
+- **Windows 10/11** (or macOS/Linux)
+- **Docker Desktop** (we'll install this)
+- **Basic web browser** (Chrome, Firefox, Edge)
+
+### Step-by-Step Setup (Windows)
+
+#### 1. Install Docker Desktop
+1. Go to [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. Click "Download for Windows"
+3. Run the installer and follow the prompts
+4. **Restart your computer** when prompted
+5. Start Docker Desktop from the Start menu
+6. Wait for Docker to fully start (you'll see the whale icon in your system tray)
+
+#### 2. Download This Project
+1. Click the green "Code" button on GitHub
+2. Select "Download ZIP"
+3. Extract the ZIP file to a folder (e.g., `C:\Users\YourName\surveyJS`)
+
+#### 3. Open Command Prompt
+1. Press `Windows + R`
+2. Type `cmd` and press Enter
+3. Navigate to your project folder:
+   ```cmd
+   cd C:\Users\YourName\surveyJS
+   ```
+
+#### 4. Start the Application
+```cmd
+docker-compose up --build -d
+```
+
+#### 5. Test It Works
+1. Open your web browser
+2. Go to: **http://localhost:3000**
+3. You should see the survey application!
+
+## 🎯 What You'll See
+
+- **Main Page**: SurveyJS interface with different survey types
+- **Customer Feedback**: A/B testing between two feedback survey versions
+- **Feature Polls**: A/B testing between two feature poll versions
+- **Employee Surveys**: A/B testing between two employee survey versions
+
+## 🆘 Troubleshooting
+
+### "Docker is not running"
+- Start Docker Desktop from the Start menu
+- Wait for the whale icon to appear in your system tray
+- Try the command again
+
+### "Port 3000 is already in use"
+- Stop any existing containers: `docker-compose down`
+- Try again: `docker-compose up --build -d`
+
+### "Build failed"
+- Make sure Docker Desktop is fully started
+- Try: `docker system prune -f` (removes old images)
+- Then: `docker-compose up --build -d`
+
+### "Can't connect to database"
+- Wait for all containers to start: `docker-compose ps`
+- Check logs: `docker-compose logs app`
+
+## 📱 Testing Your App
+
+### Health Check
+- Visit: http://localhost:3000/health
+- Should show: `{"service":"surveyjs-go","status":"healthy"}`
+
+### Survey Types
+- **Customer Feedback**: http://localhost:3000/feedback
+- **Feature Polls**: http://localhost:3000/poll  
+- **Employee Surveys**: http://localhost:3000/employee
+
+### A/B Testing
+- Refresh the same survey page multiple times
+- You'll see it alternates between A and B versions
+- Each user gets a consistent version for 15 minutes
+
+## 🛠️ Useful Commands
+
+```cmd
+# Start the app
+docker-compose up -d
+
+# Stop the app
+docker-compose down
+
+# View running containers
+docker-compose ps
+
+# View app logs
+docker-compose logs app
+
+# Restart everything
+docker-compose restart
+```
+
 ## Features
 
 - **A/B Testing**: Counterbalanced survey assignment for customer feedback, feature polls, and employee satisfaction surveys
