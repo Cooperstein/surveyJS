@@ -1,5 +1,38 @@
-# Ignore local dependencies
-node_modules
+# Go build artifacts
+main
+main.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-# Ignore environment file with secrets
+# Go test files
+*.test
+*.out
+
+# Environment files
 .env
+.env.local
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# Temporary files
+tmp/
+temp/

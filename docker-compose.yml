@@ -5,23 +5,23 @@ services:
       - "3000:3000"
     environment:
       - POSTGRES_HOST=db
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=surveydb
     depends_on:
       db:
-        condition: service_healthy # <-- UPDATED: Waits for the db to be healthy
+        condition: service_healthy
 
   db:
     image: postgres:15
     restart: always
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=surveydb
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck: # <-- NEW: Healthcheck block
+    healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d surveydb"]
       interval: 5s
       timeout: 5s

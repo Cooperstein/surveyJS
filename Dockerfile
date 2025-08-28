@@ -1,21 +1,39 @@
-# Start from an official Node.js runtime image
-FROM node:20
+# Build stage
+FROM golang:1.21-alpine AS builder
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
+# Install git for go mod download
+RUN apk add --no-cache git
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+WORKDIR /app
 
-# Install the application's dependencies
-RUN npm install
+# Copy go mod files first for better caching
+COPY go.mod go.sum ./
 
-# Copy the application's source code FROM the 'src' directory
-# This is the line that fixes the error.
-COPY src/ .
+# Download dependencies
+RUN go mod download
 
-# Expose the port the app runs on
+# Copy source code
+COPY . .
+
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+
+# Final stage
+FROM alpine:latest
+
+# Install ca-certificates for HTTPS requests
+RUN apk --no-cache add ca-certificates
+
+WORKDIR /root/
+
+# Copy the binary from builder stage
+COPY --from=builder /app/main .
+
+# Copy the src directory with surveys and public files
+COPY --from=builder /app/src ./src
+
+# Expose port
 EXPOSE 3000
 
-# Define the command to run the application
-CMD [ "node", "server.js" ]
+# Run the binary
+CMD ["./main"]

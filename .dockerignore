@@ -1,4 +1,22 @@
-node_modules
-.npm
-Dockerfile
-.dockerignore
+# Go build artifacts
+main
+main.exe
+
+# Git files
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
