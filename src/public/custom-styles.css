@@ -1,0 +1,159 @@
+/* Custom SurveyJS Styling */
+
+/* Main container styling */
+#surveyContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Survey title styling */
+.sv_main .sv_header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sv_main .sv_header h3 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Question styling */
+.sv_main .sv_q {
+    background: white;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+}
+
+.sv_main .sv_q_title {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Button styling */
+.sv_main .sv_btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+}
+
+.sv_main .sv_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Radio button and checkbox styling */
+.sv_main .sv_q_radiogroup label,
+.sv_main .sv_q_checkbox label {
+    display: block;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sv_main .sv_q_radiogroup label:hover,
+.sv_main .sv_q_checkbox label:hover {
+    background: #e9ecef;
+}
+
+/* Rating scale styling */
+.sv_main .sv_q_rating {
+    text-align: center;
+}
+
+.sv_main .sv_q_rating .sv_q_rating_item {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.sv_main .sv_q_rating .sv_q_rating_item:hover {
+    transform: scale(1.2);
+}
+
+/* Comment/textarea styling */
+.sv_main .sv_q_comment textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1em;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.sv_main .sv_q_comment textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Progress bar styling */
+.sv_main .sv_progress {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.sv_main .sv_progress_bar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Thank you message styling */
+#surveyContainer h1 {
+    text-align: center;
+    color: #667eea;
+    font-size: 2.5em;
+    margin-top: 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #surveyContainer {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .sv_main .sv_header h3 {
+        font-size: 2em;
+    }
+    
+    .sv_main .sv_q {
+        padding: 20px;
+    }
+}
