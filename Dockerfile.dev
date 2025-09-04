@@ -1,0 +1,23 @@
+# Development Dockerfile with hot reload
+FROM node:20
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies including dev dependencies
+RUN npm install
+
+# Install nodemon globally for hot reload
+RUN npm install -g nodemon
+
+# Copy the application's source code
+COPY src/ .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Use nodemon for development with hot reload
+CMD ["nodemon", "src/server.js"]
